@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
-app.listen('process.env.PORT || 2626', function(){
+app.listen(process.env.PORT || 2626, function(){
   console.log('listening on port 2626')
 })
 

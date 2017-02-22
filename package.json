@@ -8,8 +8,10 @@
     "start": "node ./server.js"
   },
   "engines": {
-
+    "node": "6.9.4",
+    "npm": "3.10.8"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shakalee14/maya-monroe.git"
