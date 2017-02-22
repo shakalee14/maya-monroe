@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var pug = require('pug');
+var http = require('http');
 
 var index = require('./routes/index');
 
@@ -19,9 +20,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
-app.listen(process.env.PORT || 2626, function(){
+var server = http.createServer(app);
+
+server.listen(process.env.PORT || '2626', function(){
   console.log('listening on port 2626')
 })
 
 module.exports = app;
-
