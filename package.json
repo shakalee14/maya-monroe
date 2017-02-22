@@ -22,12 +22,6 @@
   },
   "homepage": "https://github.com/shakalee14/maya-monroe#readme",
   "dependencies": {
-    "body-parser": "^1.16.1",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.14.1",
-    "http": "0.0.0",
-    "path": "^0.12.7",
-    "pg-promise": "^5.5.8",
-    "pug": "^2.0.0-beta11"
+
   }
 }
