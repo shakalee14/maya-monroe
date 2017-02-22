@@ -1,0 +1,28 @@
+{
+  "name": "maya-monroe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakalee14/maya-monroe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shakalee14/maya-monroe/issues"
+  },
+  "homepage": "https://github.com/shakalee14/maya-monroe#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-beta11"
+  }
+}
