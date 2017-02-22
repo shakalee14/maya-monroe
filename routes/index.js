@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const database = require('../database/db.js')
+var express = require('express')
+var router = express.Router()
+var database = require('../database/db.js')
 
 router.get('/', function(request, response){
   response.render('splash')
@@ -35,23 +35,19 @@ router.get('/contact', function(request, response){
 })
 
 router.post('/contact', (request, response, next) => {
-  const name = request.body.name
-  const email = request.body.email
-  const dates = request.body.dates
-  const message = request.body.message
-  const option = request.body.option
-  if (!Array.isArray(request.body.options)){
-    request.body.options = 'options' in request.body ? [request.body.options] : []
-  }
+  var body = request.body
+  var name = body.name
+  var email = body.email
+  var dateOne = body.dateOne
+  var dateTwo = body.dateTwo
+  var dateThree = body.dateThree
+  var message = body.message
+  var options = body.options
 
-  database.createContact(name, email, dates, message)
+  database.createContact(name, email, dateOne, dateTwo, dateThree, options, message)
     .then(contact => {
-      response.redirect('/contact')
+      response.render('thankyou')
     })
-    .catch(error => {
-      response.send('error')
-    })
-
 })
 
 module.exports = router

@@ -1,25 +1,25 @@
 const databaseName = process.env.NODE_ENV === 'maya-monroe'
-const pgp = require('pg-promise')();
+const pgp = require('pg-promise')()
 const CONNECTION_STRING = process.env.NODE_ENV === 'production'
   ? process.env.DATABASE_URL
   : `postgres://${process.env.USER}@localhost:5432/maya-monroe`
 // const CONNECTION_STRING = `postgres://${process.env.USER}@localhost:5432/hackathon`
-const db = pgp(CONNECTION_STRING);
-const pg = require('pg');
+const db = pgp(CONNECTION_STRING)
+const pg = require('pg')
 
-const createContact = (name, email, phone, dates, meetupTime) => {
+const createContact = (name, email, dateOne, dateTwo, dateThree, options, message) => {
   const sql =  `
     INSERT INTO
-      contacts (name, email, phone, dates, meetupTime)
+      contacts (name, email, dateOne, dateTwo, dateThree, options, message)
     VALUES
-      ($1, $2, $3, $4, $5)
+      ($1, $2, $3, $4, $5, $6, $7)
     RETURNING
       *
     `
-  return db.any(sql, [name, email, phone, dates, meetupTime])
+  return db.any(sql, [name, email, dateOne, dateTwo, dateThree, options, message])
 }
 
-const associateOptionWithContact = (contact, option) => {
+const associateOptionWithContact = (contact, options) => {
   const queries = options.map(optionId => {
     const sql = `
       INSERT INTO
@@ -32,11 +32,7 @@ const associateOptionWithContact = (contact, option) => {
   return Promise.all(queries)
 }
 
-const getAllOptions = () => {
-  const sql = `SELECT * FROM options`
-
-  return db.any(sql, [])
-}
+const getAllOptions = () => { return db.any('SELECT * FROM options', []) }
 
 module.exports = {
   createContact: createContact,

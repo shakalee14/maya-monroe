@@ -7,13 +7,17 @@ block content
 
   section
     h1 Get in touch ...
+  section
+    h2=message
 
   form(id="form" class="topBefore" action='/contact' method='POST')
     input(id="name" type="text" placeholder="NAME" name="name")
     input(id="email" type="text" placeholder="EMAIL" name="email")
-    input(id="email" type="text" placeholder="3 DATES" name="dates")
-    select.option-selector(name="options" multiple)
+    input(id="email" type="text" placeholder="DATE OPTION 1" name="dateOne")
+    input(id="email" type="text" placeholder="DATE OPTION 2" name="dateTwo")
+    input(id="email" type="text" placeholder="DATE OPTION 3" name="dateThree")
+    select(name="options" multiple)
       for option in options
         option(value=option.id)= option.option
-    textarea(id="message" type="text" placeholder="MESSAGE" message="message")
+    textarea(id="message" type="text" placeholder="MESSAGE" name="message")
     input(id="submit" type="submit" value="Enter")
