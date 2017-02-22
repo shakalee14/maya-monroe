@@ -5,4 +5,8 @@ router.get('/', function(request, response){
   response.render('splash')
 })
 
+router.get('/home', function(request, response){
+  response.render('home')
+})
+
 module.exports = router
