@@ -2,4 +2,18 @@ extends layout
 
 block content
 
-  h1 Get in Touch
+  section
+    include navbar.pug
+
+  section
+    h1 Get in touch ...
+
+  form(id="form" class="topBefore" action='/contact' method='POST')
+    input(id="name" type="text" placeholder="NAME" name="name")
+    input(id="email" type="text" placeholder="EMAIL" name="email")
+    input(id="email" type="text" placeholder="3 DATES" name="dates")
+    select.option-selector(name="options" multiple)
+      for option in options
+        option(value=option.id)= option.option
+    textarea(id="message" type="text" placeholder="MESSAGE" message="message")
+    input(id="submit" type="submit" value="Enter")
